@@ -21,6 +21,9 @@ public class MainPage extends Page{
     @FindBy(id = "PH_user-email")
     private WebElement userNameframe;
 
+    @FindBy(xpath = "//span[@class='js-text-inner pm-toolbar__button__text__inner  pm-toolbar__button__text__inner_noicon']")
+    private WebElement contact;
+
     public MainPage(WebDriver driver)
     {
         super(driver);
@@ -45,6 +48,10 @@ public class MainPage extends Page{
 
     public WebElement getWriteButton() {
         return writeButton;
+    }
+
+    public WebElement getContact() {
+        return contact;
     }
 
 }

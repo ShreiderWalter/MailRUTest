@@ -44,4 +44,10 @@ public class MailRUTest {
         oneCanLoginMailRU();
         steps.canWriteMessage();
     }
+
+    @Test(dependsOnMethods = "canWriteMessageTest")
+    public void hasValidContacts(){
+        oneCanLoginMailRU();
+        steps.ifContactExists();
+    }
 }

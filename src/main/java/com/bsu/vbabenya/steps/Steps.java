@@ -16,6 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class Steps {
     private final String BASE_URL = "https://e.mail.ru/messages/inbox/?back=1";
     private final String MESSAGE_URL = "https://e.mail.ru/compose/?*";
+    private final String CONTACTS_URL = "https://e.mail.ru/addressbook";
     private final Logger logger = Logger.getLogger(Steps.class);
     private WebDriver driver;
 
@@ -53,5 +54,11 @@ public class Steps {
     public void canWriteMessage(){
         MainPage homePage = new MainPage(driver);
         homePage.getWriteButton().click();
+    }
+
+    public void ifContactExists(){
+        MainPage homePage = new MainPage(driver);
+        homePage.getContact().click();
+        Assert.assertTrue(driver.getCurrentUrl().equals(CONTACTS_URL));
     }
 }
